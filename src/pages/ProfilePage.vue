@@ -27,7 +27,7 @@ async function getProfileById() {
     await profilesService.getProfileById(profileIdFromRouteParams)
   } catch (error) {
     logger.error(error)
-    Pop.error(error, 'Could not get profile')
+    Pop.error(error, 'Could not get profile', `<img src="https://http.cat/images/${error.response.status}.jpg">`)
   }
 }
 
