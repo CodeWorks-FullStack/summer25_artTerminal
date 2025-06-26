@@ -11,7 +11,11 @@ defineProps({
 
 <template>
   <div class="project-card">
-    <img class="profile-img" :src="project.creator.picture" :alt="`picture of ${project.creator.name}`">
+
+    <!-- <RouterLink :to="`profile/${project.creator.id}`"> -->
+    <RouterLink :to="{ name: 'Profile Page', params: { profileId: project.creator.id } }">
+      <img class="profile-img" :src="project.creator.picture" :alt="`picture of ${project.creator.name}`">
+    </RouterLink>
     <img :src="project.coverImg" />
     <label class="project-title">{{ project.title }}</label>
   </div>
