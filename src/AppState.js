@@ -13,6 +13,8 @@ export const AppState = reactive({
   projects: [],
 
   /** @type {Profile} */
-  profile: null
+  profile: null,
+
+  // profileProjects: []
 })
 

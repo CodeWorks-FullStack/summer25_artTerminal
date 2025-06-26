@@ -6,24 +6,38 @@ import { logger } from '@/utils/Logger.js';
 import { computed } from 'vue';
 import { AppState } from '@/AppState.js';
 import { useRoute } from 'vue-router';
+import { projectsService } from '@/services/ProjectsService.js';
+import ProjectCard from '@/components/ProjectCard.vue';
 
 const profile = computed(() => AppState.profile)
+const profileProjects = computed(() => AppState.projects)
 
 const route = useRoute()
 
-onMounted(getProfileById)
+onMounted(() => {
+  getProfileById()
+  getProfileProjectsByProfileId()
+})
 
 async function getProfileById() {
   try {
     logger.log('🛣️', route, route.params.profileId)
     const profileIdFromRouteParams = route.params.profileId
     // NOTE DO NOT DO THIS TIMEOUT STUFF, just simulating a longer load time for the v-else
-    setTimeout(async () => {
-      await profilesService.getProfileById(profileIdFromRouteParams)
-    }, 5000)
+    await profilesService.getProfileById(profileIdFromRouteParams)
   } catch (error) {
     logger.error(error)
     Pop.error(error, 'Could not get profile')
+  }
+}
+
+async function getProfileProjectsByProfileId() {
+  try {
+    const profileIdFromRouteParams = route.params.profileId
+    await projectsService.getProjectsByProfileId(profileIdFromRouteParams)
+  } catch (error) {
+    logger.error(error)
+    Pop.error(error, 'Could not get profile posts')
   }
 }
 
@@ -41,11 +55,20 @@ async function getProfileById() {
         <p>{{ profile.bio }}</p>
       </div>
     </section>
+    <!-- SECTION loader until the profile arrives -->
     <section v-else>
-      <div>
+      <div class="text-center">
         <h1>Loading your profile, beep boop <i class="mdi mdi-loading mdi-spin"></i></h1>
-        <img src="https://i.redd.it/5w78gh9f9mie1.gif" alt="">
+        <!-- <img src="https://i.redd.it/5w78gh9f9mie1.gif" alt=""> -->
+        <img
+          src="https://images.steamusercontent.com/ugc/947332576908722296/17668ACFDB9A5BDD28AF88B0ECC6D3D8E68271B2/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
+          alt="">
       </div>
+    </section>
+    <section class="mx-2 mx-md-5 project-cards">
+      <ProjectCard v-for="project in profileProjects" :project :key="`profile-project-${project.id}`" />
+      <!-- NOTE Mick from Bizzaro world wrote this -->
+      <!-- <ProjectCard v-for="proProProp in profileProjects" :project="proProProp" :key="`profile-project-${proProProp.id}`" /> -->
     </section>
   </div>
 </template>

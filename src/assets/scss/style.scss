@@ -18,3 +18,8 @@ main {
   justify-content: start;
   align-items: end;
 }
+
+.project-cards {
+  columns: 300px;
+  column-gap: 1rem;
+}

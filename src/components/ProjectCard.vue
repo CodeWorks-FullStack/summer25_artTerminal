@@ -14,9 +14,9 @@ defineProps({
 
     <!-- <RouterLink :to="`profile/${project.creator.id}`"> -->
     <RouterLink :to="{ name: 'Profile Page', params: { profileId: project.creator.id } }">
-      <img class="profile-img" :src="project.creator.picture" :alt="`picture of ${project.creator.name}`">
+      <img class="profile-img" :src="project.creator.picture" :alt="`picture of ${project.creator.name}`" height="50">
     </RouterLink>
-    <img :src="project.coverImg" />
+    <img height="400" :src="project.coverImg" />
     <label class="project-title">{{ project.title }}</label>
   </div>
 </template>
@@ -29,6 +29,10 @@ defineProps({
   overflow: hidden;
   transition: all .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
+
+  img {
+    height: auto;
+  }
 
   &:hover {
     filter: brightness(1.3);
