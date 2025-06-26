@@ -14,7 +14,7 @@ defineProps({
 
     <!-- <RouterLink :to="`profile/${project.creator.id}`"> -->
     <RouterLink :to="{ name: 'Profile Page', params: { profileId: project.creator.id } }">
-      <img class="profile-img" :src="project.creator.picture" :alt="`picture of ${project.creator.name}`" height="50">
+      <img class="profile-img" :src="project.creator.picture" :alt="`picture of ${project.creator.name}`">
     </RouterLink>
     <img height="400" :src="project.coverImg" />
     <label class="project-title">{{ project.title }}</label>

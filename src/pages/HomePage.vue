@@ -25,6 +25,7 @@ async function getProjects() {
 
 <template>
   <div class="mx-2 mx-md-5">
+    <!-- project cards is defined in style.css -->
     <section v-if="projects.length" class="project-cards p-3">
       <!-- {{ projects }} -->
       <!-- <div v-for="project in projects">{{ project.title }}</div> -->
@@ -39,6 +40,7 @@ async function getProjects() {
         LOADING...
       </h1>
       <div class="project-cards p-3 placeholder-glow">
+        <!-- NOTE we can create a v-for over a number, to just duplicate some 'mimic' cards for a fancy loading experience. element also generates it's own 'random' pixel height set to css variable then that variable is used in the css for that elements height -->
         <div v-for="n in 8" class="loading-project-card placeholder" :key="n"
           :style="`--mimic-height: ${(Math.random() * 300) + 200}px`"></div>
       </div>

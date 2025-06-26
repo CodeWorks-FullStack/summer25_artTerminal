@@ -21,9 +21,9 @@ onMounted(() => {
 
 async function getProfileById() {
   try {
+    // NOTE route, comes from the useRoute above, this give us access to the current 'route' location where we are in our application like the browsers url and it's 'params'
     logger.log('🛣️', route, route.params.profileId)
     const profileIdFromRouteParams = route.params.profileId
-    // NOTE DO NOT DO THIS TIMEOUT STUFF, just simulating a longer load time for the v-else
     await profilesService.getProfileById(profileIdFromRouteParams)
   } catch (error) {
     logger.error(error)

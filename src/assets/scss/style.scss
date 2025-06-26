@@ -19,6 +19,7 @@ main {
   align-items: end;
 }
 
+//NOTE This class is a super simple way to create a 'Masonry' style layout, similar to un-evenly stacked bricks
 .project-cards {
   columns: 300px;
   column-gap: 1rem;
