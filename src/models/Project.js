@@ -1,3 +1,4 @@
+import { Account } from "./Account.js"
 
 
 export class Project {
@@ -7,5 +8,7 @@ export class Project {
     this.coverImg = data.coverImg
     this.projectImgs = data.projectImgs
     // creator info
+    // /** @type {Account} */
+    this.creator = new Account(data.creator)
   }
 }

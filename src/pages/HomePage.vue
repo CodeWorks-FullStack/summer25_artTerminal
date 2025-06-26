@@ -24,15 +24,17 @@ async function getProjects() {
 </script>
 
 <template>
-  <section class="project-cards">
-    <!-- {{ projects }} -->
-    <!-- <div v-for="project in projects">{{ project.title }}</div> -->
-    <!-- <img v-for="project in projects" :src="project.coverImg" alt=""> -->
-    <!-- NOTE alternate way to write a prop, when your prop name matches the name of the data being passed -->
-    <!-- NOTE instead of :project="project" i can just write :project -->
-    <ProjectCard v-for="project in projects" :key="`project-card-${project.id}`" :project />
+  <div class="mx-2 mx-md-5">
+    <section class="project-cards p-3">
+      <!-- {{ projects }} -->
+      <!-- <div v-for="project in projects">{{ project.title }}</div> -->
+      <!-- <img v-for="project in projects" :src="project.coverImg" alt=""> -->
+      <!-- NOTE alternate way to write a prop, when your prop name matches the name of the data being passed -->
+      <!-- NOTE instead of :project="project" i can just write :project -->
+      <ProjectCard v-for="project in projects" :key="`project-card-${project.id}`" :project />
 
-  </section>
+    </section>
+  </div>
 </template>
 
 <style scoped lang="scss">
