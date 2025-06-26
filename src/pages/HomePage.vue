@@ -24,7 +24,7 @@ async function getProjects() {
 </script>
 
 <template>
-  <section>
+  <section class="project-cards">
     <!-- {{ projects }} -->
     <!-- <div v-for="project in projects">{{ project.title }}</div> -->
     <!-- <img v-for="project in projects" :src="project.coverImg" alt=""> -->
@@ -35,4 +35,9 @@ async function getProjects() {
   </section>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.project-cards {
+  columns: 300px;
+  column-gap: 1rem;
+}
+</style>
