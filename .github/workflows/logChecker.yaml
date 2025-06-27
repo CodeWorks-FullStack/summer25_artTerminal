@@ -17,3 +17,6 @@ jobs:
 
     - name: List out 📃
       run: ls
+
+    - name: Print env ⚙️
+      run: cat ./src/env.js
