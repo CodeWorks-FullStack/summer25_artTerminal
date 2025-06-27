@@ -2,6 +2,11 @@ name: Test Guy
 
 on: [push]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   testing:
     runs-on: ubuntu-latest
@@ -30,8 +35,43 @@ jobs:
     - name: Find Keys 👶
       run: |
         echo "The baby is loose and will put any keys it finds in its mouth"
-        grep -rn 'key' .
+        grep -rn 'secret' .
         echo "done i guess"
 
     # - name: Build Project 🏗️
     #   run: npm run build
+
+  buildingVue:
+    environment: github-pages
+    # url: ${{ steps.deployment.outputs.page_url }
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout 👀
+        uses: actions/checkout@v4
+
+      - name: Configure Node.js 🧞
+        uses : actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Dependencies 📦
+        run: npm ci
+
+      - name: Build the Project 🏗️
+        run: npm run build
+
+      - name: Configure GH Pages 🐈‍⬛
+        uses: actions/configure-pages@v4
+
+      - name: Upload Dist ⬆️
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deploy Page 🪄
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+
