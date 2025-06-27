@@ -6,6 +6,8 @@ defineProps({
   project: { type: Project, required: true }
 })
 
+console.log('🪵🪵🪵')
+
 </script>
 
 

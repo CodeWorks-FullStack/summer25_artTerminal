@@ -1,0 +1,10 @@
+name: Test Guy
+
+on: [push]
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Cool Cool'
+      run: echo "🫘🫘"
