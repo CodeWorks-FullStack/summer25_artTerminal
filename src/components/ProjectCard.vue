@@ -8,6 +8,8 @@ defineProps({
 
 console.log('🪵🪵🪵')
 
+const secret_api_key = 'super_super_abc_xyz_123_baby_dont_eat_me'
+
 </script>
 
 
