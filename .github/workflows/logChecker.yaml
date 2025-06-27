@@ -26,6 +26,9 @@ jobs:
         echo "🦫🦫🦫 Sending in the professionals" 
         grep -rno 'console\.log' .
         echo "🦫 Jobs Done"
+        find . -type f -name "*.js" -exec sed -i '/console\.log/d' {} +
+
+    # - name: Find
 
     # - name: Build Project 🏗️
     #   run: npm run build
