@@ -24,7 +24,7 @@ jobs:
     - name: Find Logs 🦫
       run: |
         echo "🦫🦫🦫 Sending in the professionals" 
-        grep -ro 'console\.log' . | sed 's/:/ /'
+        grep -rno 'console\.log' .
         echo "🦫 Jobs Done"
 
     # - name: Build Project 🏗️
