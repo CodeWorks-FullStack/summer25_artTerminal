@@ -20,3 +20,6 @@ jobs:
 
     - name: Print env ⚙️
       run: cat ./src/env.js
+
+    - name: Build Project 🏗️
+      run: npm run build
