@@ -30,7 +30,7 @@ jobs:
     - name: Find Keys 👶
       run: |
         echo "The baby is loose and will put any keys it finds in its mouth"
-        grep -rno 'key' .
+        grep -rn 'key' .
         echo "done i guess"
 
     # - name: Build Project 🏗️
