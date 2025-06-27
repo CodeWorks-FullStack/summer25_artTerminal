@@ -27,6 +27,6 @@ export default defineConfig({
   },
 
   // NOTE If deploying to gh-pages uncomment the line below (https://vitejs.dev/config/shared-options.html#base)
-  // base: '/art_terminal/'
+  base: '/summer25_artTerminal/'
 })
 
