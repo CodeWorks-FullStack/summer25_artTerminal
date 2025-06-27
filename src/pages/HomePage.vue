@@ -12,7 +12,7 @@ onMounted(getProjects)
 
 async function getProjects() {
   try {
-    logger.log('getting projects🎨')
+    console.log('getting projects🎨')
     await projectsService.getProjects()
   }
   catch (error) {

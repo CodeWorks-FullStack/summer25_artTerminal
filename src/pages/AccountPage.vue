@@ -21,7 +21,7 @@ watch(account, () => editableAccount.value = { ...AppState.account })
 
 async function saveAccount() {
   try {
-    logger.log('💾', editableAccount.value)
+    console.log('💾', editableAccount.value)
     await accountService.editAccount(editableAccount.value)
   } catch (error) {
     Pop.error(error, "Could not save account")

@@ -27,7 +27,7 @@ class SocketProviderPlugin {
   async init() {
     try {
       this.handlers = await registerSocketHandlers()
-      logger.log('📡handlers', this.handlers)
+      console.log('📡handlers', this.handlers)
     } catch (e) {
       logger.error('SOCKET_HANDLER_ERROR', e)
       return

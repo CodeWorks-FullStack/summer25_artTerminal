@@ -14,16 +14,16 @@ class RoomHandler extends SocketHandler {
   }
 
   onJoinedRoom(roomName) {
-    logger.log('You joined room', roomName)
+    console.log('You joined room', roomName)
   }
   onLeftRoom(roomName) {
-    logger.log('You left room', roomName)
+    console.log('You left room', roomName)
   }
   onUserJoinedRoom(user) {
-    logger.log('A user joined your room', user)
+    console.log('A user joined your room', user)
   }
   onUserLeftRoom(user) {
-    logger.log('A user left your room', user)
+    console.log('A user left your room', user)
   }
 
 }

@@ -31,7 +31,7 @@ function registerGlobalSocketMessages(socket) {
 }
 
 function runPlayback() {
-  logger.log('⚡[SOCKET_AUTHENTICATED]')
+  console.log('⚡[SOCKET_AUTHENTICATED]')
   authenticated = true
   if (!queue.length) {
     return
@@ -39,7 +39,7 @@ function runPlayback() {
   const playback = [...queue]
   queue = []
   playback.forEach(e => {
-    logger.log(`📡 ${e.handler}`, e.action, e.payload)
+    console.log(`📡 ${e.handler}`, e.action, e.payload)
     socket.emit(e.action, e.payload)
   })
 }
@@ -80,7 +80,7 @@ export class SocketHandler {
   enqueue(action, payload) {
     const handler = this.constructor.name
     const enqueued = { handler, action, payload }
-    logger.log('📼[ENQUEUING_ACTION]', enqueued)
+    console.log('📼[ENQUEUING_ACTION]', enqueued)
     queue.push(enqueued)
   }
 
@@ -89,7 +89,7 @@ export class SocketHandler {
     if (this.requiresAuth && !authenticated) {
       return this.enqueue(action, payload)
     }
-    logger.log('📡', action, payload)
+    console.log('📡', action, payload)
     this.socket?.emit(action, payload)
   }
 }
